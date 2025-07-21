@@ -65,7 +65,6 @@ const Navbar = () => {
                 <NavLink onClick={()=>setvisible(false)} className='py-2 pl-2 border' to='/contact' >Contact</NavLink>
               </div>
           </div>
-          ff
     </div>
   );
 };
