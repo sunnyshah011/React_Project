@@ -51,7 +51,7 @@ const Navbar = () => {
       </div>
 
       {/* side navbar for small screen */}
-      <div className={`absolute top-0 left-0 bottom-0 overflow-hidden bg-gray-800 transition-all ${visible ? 'w-[60%]' : 'w-0'}`}>
+      <div className={` top-0 left-0 bottom-0 overflow-hidden fixed bg-black opacity-60 transition-all ${visible ? 'w-[60%]' : 'w-0'}`}>
         <div className='flex flex-col text-white' >
           <div onClick={() => setvisible(false)} className='flex items-center gap-4 p-3 cursor-pointer' >
             <img src={assets.dropdown_icon} className='h-4 rotate-180' alt="" />
