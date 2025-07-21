@@ -1,9 +1,9 @@
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { assets } from '../assets/frontend_assets/assets'
 import { NavLink, Link } from 'react-router-dom';
 
 const Navbar = () => {
-
+ 
   const [visible, setvisible] = useState(false)
 
   return (
@@ -51,17 +51,17 @@ const Navbar = () => {
       </div>
 
       {/* side navbar for small screen */}
-      <div className={`absolute top-0 left-0 bottom-0 overflow-hidden h-[50%] bg-gray-800 transition-opacity ${visible ? 'w-[60%]' : 'w-0'}`}>
-        <div className='flex flex-col text-gray-600' >
+      <div className={`absolute top-0 left-0 bottom-0 overflow-hidden bg-gray-800 transition-all ${visible ? 'w-[60%]' : 'w-0'}`}>
+        <div className='flex flex-col text-white' >
           <div onClick={() => setvisible(false)} className='flex items-center gap-4 p-3 cursor-pointer' >
             <img src={assets.dropdown_icon} className='h-4 rotate-180' alt="" />
             <p> Back</p>
           </div>
 
-          <NavLink onClick={() => setvisible(false)} className='py-2 pl-2 border' to='/' >Home</NavLink>
-          <NavLink onClick={() => setvisible(false)} className='py-2 pl-2 border' to='/collection' >Collection</NavLink>
-          <NavLink onClick={() => setvisible(false)} className='py-2 pl-2 border' to='/about' >About</NavLink>
-          <NavLink onClick={() => setvisible(false)} className='py-2 pl-2 border' to='/contact' >Contact</NavLink>
+          <NavLink onClick={() => setvisible(false)} className='py-3 pl-5' to='/' >Home</NavLink>
+          <NavLink onClick={() => setvisible(false)} className='py-3 pl-5' to='/collection' >Collection</NavLink>
+          <NavLink onClick={() => setvisible(false)} className='py-3 pl-5' to='/about' >About</NavLink>
+          <NavLink onClick={() => setvisible(false)} className='py-3 pl-5' to='/contact' >Contact</NavLink>
         </div>
       </div>
     </div>
