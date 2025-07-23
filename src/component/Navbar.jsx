@@ -3,74 +3,62 @@ import { assets } from "../assets/frontend_assets/assets";
 import { NavLink, Link } from "react-router-dom";
 
 const Navbar = () => {
-  // const [visible, setvisible] = useState(false);
-    const [isOpen, setIsOpen] = useState(false);
-
-  // Disable body scroll when navbar is open
-  useEffect(() => {
-    if (isOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = '';
-    }
-
-    return () => {
-      document.body.style.overflow = '';
-    };
-  }, [isOpen]);
+  const [isOpen, setIsOpen] = useState(false);
 
   const openMenu = () => setIsOpen(true);
   const closeMenu = () => setIsOpen(false);
 
+  // Lock scroll when sidebar is open
+  useEffect(() => {
+    document.body.style.overflow = isOpen ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isOpen]);
+
   return (
-    <div className="flex items-center justify-between py-5 font-medium">
-      {/* <NavLink to='/' ><img src={assets.logo} className='w-36' alt="" /></NavLink> */}
+    <header className="flex items-center justify-between py-5 px-4 font-medium relative z-50">
+      {/* Logo (optional) */}
+      {/* <NavLink to="/"><img src={assets.logo} className="w-36" alt="Logo" /></NavLink> */}
+
+      {/* Mobile menu icon */}
       <img
         onClick={openMenu}
         src={assets.menu_icon}
-        className="w-5 cursor-pointer sm:hidden "
-        alt=""
+        className="w-5 cursor-pointer sm:hidden"
+        alt="Menu"
       />
 
-      <ul className="hidden sm:flex gap-5 text-sm text-gray-700">
-        <NavLink to="/" className=" flex flex-col items-center gap-1 ">
-          <p>Home</p>
-          <hr className="w-2/4 border-none h-[1.5px] bg-gray-700 hidden" />
+      {/* Desktop nav links */}
+      <nav className="hidden sm:flex gap-5 text-sm text-gray-700">
+        <NavLink to="/" className="flex flex-col items-center gap-1">
+          Home
         </NavLink>
-        <NavLink
-          to="/collection"
-          className=" flex flex-col items-center gap-1 "
-        >
-          <p>Collection</p>
-          <hr className="w-2/4 border-none h-[1.5px] bg-gray-600 hidden" />
+        <NavLink to="/collection" className="flex flex-col items-center gap-1">
+          Collection
         </NavLink>
-        <NavLink to="/contact" className=" flex flex-col items-center gap-1 ">
-          <p>Contact</p>
-          <hr className="w-2/4 border-none h-[1.5px] bg-gray-700 hidden" />
+        <NavLink to="/contact" className="flex flex-col items-center gap-1">
+          Contact
         </NavLink>
-        <NavLink to="/about" className=" flex flex-col items-center gap-1 ">
-          <p>About</p>
-          <hr className="w-2/4 border-none h-[1.5px] bg-gray-700 hidden" />
+        <NavLink to="/about" className="flex flex-col items-center gap-1">
+          About
         </NavLink>
-      </ul>
+      </nav>
 
+      {/* Right side icons */}
       <div className="flex items-center gap-6">
-        <img src={assets.search_icon} className="w-5 cursor-pointer" alt="" />
+        <img src={assets.search_icon} className="w-5 cursor-pointer" alt="Search" />
 
         <Link to="/cart" className="relative">
-          <img src={assets.cart_icon} className="w-5 min-w-5" alt="" />
-          <p className="absolute right-[-5px] bottom-[-5px] w-4 text-center leading-4 bg-black text-white aspect-square rounded-full text-[8px] ">
+          <img src={assets.cart_icon} className="w-5" alt="Cart" />
+          <span className="absolute right-[-5px] bottom-[-5px] w-4 text-center leading-4 bg-black text-white aspect-square rounded-full text-[8px]">
             10
-          </p>
+          </span>
         </Link>
 
-        <div className="group relative">
-          <img
-            src={assets.profile_icon}
-            className="w-5 cursor-pointer"
-            alt=""
-          />
-          <div className="group-hover:block hidden absolute dropdown-menu right-0 pt-4">
+        <div className="relative group">
+          <img src={assets.profile_icon} className="w-5 cursor-pointer" alt="Profile" />
+          <div className="hidden group-hover:block absolute right-0 pt-4">
             <div className="flex flex-col gap-2 w-36 py-3 px-5 bg-slate-100 text-gray-700">
               <p className="cursor-pointer hover:text-black">My Profile</p>
               <p className="cursor-pointer hover:text-black">My Orders</p>
@@ -78,32 +66,39 @@ const Navbar = () => {
             </div>
           </div>
         </div>
-    </div>
-
-    <>
-      {/* Menu Icon */}
-      {/* <button className="p-4 text-2xl" onClick={openMenu}> &#9776; hamburger icon </button> */}
-
-      {/* Overlay */}
-      {isOpen && ( <div className="fixed inset-0 bg-gray-600 bg-opacity-50 z-40" onClick={closeMenu} ></div> )}
-
-      {/* Sidebar */}
-      <div className={`fixed top-0 left-0 h-full w-64 bg-white z-50 transform ${ isOpen ? 'translate-x-0' : '-translate-x-full'} transition-transform duration-300 ease-in-out`}>
-
-        {/* Close Button */}
-        <button className="p-4 text-xl" onClick={closeMenu} > &larr; Back </button>
-
-        {/* Navigation Links */}
-        <nav className="flex flex-col p-4 space-y-2">
-          <NavLink  to='/' className="text-gray-800 hover:text-blue-500" onClick={closeMenu} >Home</NavLink>
-          <NavLink  to='/about' className="text-gray-800 hover:text-blue-500" onClick={closeMenu} >About</NavLink>
-          <NavLink  to='/Colletion' className="text-gray-800 hover:text-blue-500" onClick={closeMenu} >Collection</NavLink>
-          <NavLink  to='/contact' className="text-gray-800 hover:text-blue-500" onClick={closeMenu} >Contact</NavLink>
-        </nav>
       </div>
-    </>
 
-    </div>
+      {/* Mobile sidebar & overlay */}
+      {isOpen && (
+        <div
+          className="fixed inset-0 bg-black bg-opacity-40 z-40"
+          onClick={closeMenu}
+        ></div>
+      )}
+
+      <aside
+        className={`fixed top-0 left-0 h-full w-64 bg-white z-50 transform ${
+          isOpen ? "translate-x-0" : "-translate-x-full"
+        } transition-transform duration-300 ease-in-out`}
+      >
+        <button className="p-4 text-xl" onClick={closeMenu}> &larr; Back </button>
+        
+        <nav className="flex flex-col p-4 space-y-2">
+          <NavLink to="/" onClick={closeMenu} className="text-gray-800 hover:text-blue-500">
+            Home
+          </NavLink>
+          <NavLink to="/about" onClick={closeMenu} className="text-gray-800 hover:text-blue-500">
+            About
+          </NavLink>
+          <NavLink to="/collection" onClick={closeMenu} className="text-gray-800 hover:text-blue-500">
+            Collection
+          </NavLink>
+          <NavLink to="/contact" onClick={closeMenu} className="text-gray-800 hover:text-blue-500">
+            Contact
+          </NavLink>
+        </nav>
+      </aside>
+    </header>
   );
 };
 
