@@ -4,6 +4,7 @@ import { NavLink, Link } from "react-router-dom";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [show,setShow] = useState(false)
 
   const openMenu = () => setIsOpen(true);
   const closeMenu = () => setIsOpen(false);
@@ -56,9 +57,9 @@ const Navbar = () => {
           </span>
         </Link>
 
-        <div className="relative group">
+        <div className="relative"  onClick={()=>setShow(pre=>!pre)} >
           <img src={assets.profile_icon} className="w-5 cursor-pointer" alt="Profile" />
-          <div className="hidden group-hover:block absolute right-0 pt-4">
+          <div className={`absolute right-0 pt-4 ${show? 'block' : 'hidden' } `}>
             <div className="flex flex-col gap-2 w-36 py-3 px-5 bg-slate-100 text-gray-700">
               <p className="cursor-pointer hover:text-black">My Profile</p>
               <p className="cursor-pointer hover:text-black">My Orders</p>
