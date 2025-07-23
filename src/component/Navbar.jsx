@@ -1,15 +1,32 @@
-import { useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { assets } from "../assets/frontend_assets/assets";
 import { NavLink, Link } from "react-router-dom";
 
 const Navbar = () => {
-  const [visible, setvisible] = useState(false);
+  // const [visible, setvisible] = useState(false);
+    const [isOpen, setIsOpen] = useState(false);
+
+  // Disable body scroll when navbar is open
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isOpen]);
+
+  const openMenu = () => setIsOpen(true);
+  const closeMenu = () => setIsOpen(false);
 
   return (
     <div className="flex items-center justify-between py-5 font-medium">
       {/* <NavLink to='/' ><img src={assets.logo} className='w-36' alt="" /></NavLink> */}
       <img
-        onClick={() => setvisible(true)}
+        onClick={openMenu}
         src={assets.menu_icon}
         className="w-5 cursor-pointer sm:hidden "
         alt=""
@@ -61,49 +78,31 @@ const Navbar = () => {
             </div>
           </div>
         </div>
-      </div>
+    </div>
 
-      {/* side navbar for small screen */}
-      <div
-        className={` top-0 left-0 bottom-0 overflow-hidden fixed bg-black opacity-60 transition-all ${ visible ? "w-[60%]" : "w-0"}`}>
-        <div className="flex flex-col text-white">
-          <div
-            onClick={() => setvisible(false)}
-            className="flex items-center gap-4 p-3 cursor-pointer">
-            <img src={assets.dropdown_icon} className="h-4 rotate-180" alt="" />
-            <p> Back</p>
-          </div>
+    <>
+      {/* Menu Icon */}
+      {/* <button className="p-4 text-2xl" onClick={openMenu}> &#9776; hamburger icon </button> */}
 
-          <NavLink
-            onClick={() => setvisible(false)}
-            className="py-3 pl-5"
-            to="/"
-          >
-            Home
-          </NavLink>
-          <NavLink
-            onClick={() => setvisible(false)}
-            className="py-3 pl-5"
-            to="/collection"
-          >
-            Collection
-          </NavLink>
-          <NavLink
-            onClick={() => setvisible(false)}
-            className="py-3 pl-5"
-            to="/about"
-          >
-            About
-          </NavLink>
-          <NavLink
-            onClick={() => setvisible(false)}
-            className="py-3 pl-5"
-            to="/contact"
-          >
-            Contact
-          </NavLink>
-        </div>
+      {/* Overlay */}
+      {isOpen && ( <div className="fixed inset-0 bg-gray-600 bg-opacity-50 z-40" onClick={closeMenu} ></div> )}
+
+      {/* Sidebar */}
+      <div className={`fixed top-0 left-0 h-full w-64 bg-white z-50 transform ${ isOpen ? 'translate-x-0' : '-translate-x-full'} transition-transform duration-300 ease-in-out`}>
+
+        {/* Close Button */}
+        <button className="p-4 text-xl" onClick={closeMenu} > &larr; Back </button>
+
+        {/* Navigation Links */}
+        <nav className="flex flex-col p-4 space-y-2">
+          <NavLink  to='/' className="text-gray-800 hover:text-blue-500" onClick={closeMenu} >Home</NavLink>
+          <NavLink  to='/about' className="text-gray-800 hover:text-blue-500" onClick={closeMenu} >About</NavLink>
+          <NavLink  to='/Colletion' className="text-gray-800 hover:text-blue-500" onClick={closeMenu} >Collection</NavLink>
+          <NavLink  to='/contact' className="text-gray-800 hover:text-blue-500" onClick={closeMenu} >Contact</NavLink>
+        </nav>
       </div>
+    </>
+
     </div>
   );
 };
