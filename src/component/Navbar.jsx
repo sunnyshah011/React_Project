@@ -85,17 +85,25 @@ const Navbar = () => {
         <button className="p-4 text-xl" onClick={closeMenu}> &larr; Back </button>
         
         <nav className="flex flex-col p-4 space-y-2">
-          <NavLink to="/" onClick={closeMenu} className="text-gray-800 hover:text-blue-500">
-            Home
+          <NavLink to="/" onClick={closeMenu} className="text-gray-800 hover:text-blue-500 flex gap-3 items-center ">
+          <i className="block" class="fa fa-home"></i>
+          <p className="text-[20px]" >Home</p>
           </NavLink>
-          <NavLink to="/about" onClick={closeMenu} className="text-gray-800 hover:text-blue-500">
-            About
+          <NavLink to="/" onClick={closeMenu} className="text-gray-800 hover:text-blue-500 flex gap-3 items-center ">
+          <i className="block" class="fa fa-home"></i>
+          <p className="text-[20px]" >Collection</p>
           </NavLink>
-          <NavLink to="/collection" onClick={closeMenu} className="text-gray-800 hover:text-blue-500">
-            Collection
+          <NavLink to="/" onClick={closeMenu} className="text-gray-800 hover:text-blue-500 flex gap-3 items-center ">
+          <i className="block" class="fa fa-home"></i>
+          <p className="text-[20px]" >About</p>
           </NavLink>
-          <NavLink to="/contact" onClick={closeMenu} className="text-gray-800 hover:text-blue-500">
-            Contact
+          <NavLink to="/" onClick={closeMenu} className="text-gray-800 hover:text-blue-500 flex gap-3 items-center ">
+          <i className="block" class="fa fa-home"></i>
+          <p className="text-[20px]" >Contact</p>
+          </NavLink>
+          <NavLink to="/" onClick={closeMenu} className="text-gray-800 hover:text-blue-500 flex gap-3 items-center ">
+          <i className="block" class="fa fa-home"></i>
+          <p className="text-[20px]" >Location</p>
           </NavLink>
         </nav>
       </aside>
