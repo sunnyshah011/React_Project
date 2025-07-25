@@ -8,9 +8,9 @@ const Hero = () => {
   const [search, setSearch] = useState("");
 
   return (
-      <div className="w-full h-[50vh] sm:h-[60vh] md:h-[65vh] lg:h-[70vh]  flex flex-col py-3 px-1 ">
+      <div className="w-full h-[45vh] sm:h-[55vh] md:h-[60vh] lg:h-[70vh]  flex flex-col py-3 px-1 ">
         <div className="w-full h-[50vh]  flex flex-col items-center justify-center " >
-          <div className="w-50 sm:w-60 md:w-65 lg:w-70 xl:w-75 aspect-square bg-red-400 overflow-hidden rounded-full">
+          <div className="w-50 sm:w-60 md:w-65 lg:w-65 xl:w-70 aspect-square bg-red-400 overflow-hidden rounded-full">
             <img
               src={assets.nightmare}
               alt="Hero image"

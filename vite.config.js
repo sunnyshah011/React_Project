@@ -15,6 +15,5 @@ export default defineConfig({
   plugins: [
     tailwindcss(),
     react(),
-    require('@tailwindcss/aspect-ratio')
   ],
 })
