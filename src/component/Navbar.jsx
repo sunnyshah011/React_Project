@@ -87,8 +87,8 @@ const Navbar = () => {
               className=" w-6 flex-shrink-0"
               alt="Cart"
             />
-            <span className="absolute right-[-5px] bottom-[-5px] w-4 text-center leading-4 bg-black text-white aspect-square rounded-full text-[8px]">
-              10
+            <span className="absolute right-[-4px] bottom-[-1px] w-4 text-center leading-4 bg-black text-white aspect-square rounded-full text-[8px]">
+              0
             </span>
           </Link>
 
