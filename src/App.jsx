@@ -13,7 +13,7 @@ import About from "./pages/About";
 
 const App = () => {
   return (
-    <div className="px-3 sm:px-[4vw] md:px-[5vw] lg:px-[8vw] h-[200vh]  " >
+    <div className="px-3 sm:px-[4vw] md:px-[5vw] lg:px-[8vw] h-[200vh]" >
       <Navbar /> 
       <Routes>
         <Route path="/" element={<Home />} />

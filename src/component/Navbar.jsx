@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { assets } from "../assets/frontend_assets/assets";
 import { NavLink, Link } from "react-router-dom";
 
@@ -6,6 +6,8 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [show, setShow] = useState(false);
   const [search, setSearch] = useState("");
+
+  const userRef = useRef(null);
 
   const openMenu = () => setIsOpen(true);
   const closeMenu = () => setIsOpen(false);
@@ -18,37 +20,53 @@ const Navbar = () => {
     };
   }, [isOpen]);
 
+  // Close user dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (userRef.current && !userRef.current.contains(event.target)) {
+        setShow(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
   return (
-    <header className="flex items-center justify-between py-5 px-4 font-medium relative z-50 gap-5">
-      {/* Logo (optional) */}
-      {/* <NavLink to="/"><img src={assets.logo} className="w-36" alt="Logo" /></NavLink> */}
-
+    <header className="flex items-center justify-between py-7 px-4 font-medium relative z-50 min-[300px]:gap-5">
       {/* Mobile menu icon */}
-      <img
-        onClick={openMenu}
-        src={assets.menu_icon}
-        className="w-5 cursor-pointer min-[850px]:hidden"
-        alt="Menu"
-      />
+      <div>
+        <img
+          onClick={openMenu}
+          src={assets.menu_icon}
+          className="w-5 cursor-pointer min-[850px]:hidden flex-shrink-0"
+          alt="Menu"
+        />
+      </div>
 
-      <div className="flex-3">
+      {/* Search bar */}
+      <div className="flex-1">
         <input
           type="text"
           value={search}
           onChange={(e) => setSearch(e.target.value)}
           placeholder="Search products..."
-          className="pl-5 py-1.5 w-full rounded-3xl border border-gray-300 focus:outline-none focus:ring-1
-           focus:ring-blue-500 focus:border-blue-500 transition duration-200 max-[640px]:hidden "
+          className="pl-5 py-1.5 w-full rounded-3xl border border-gray-300 focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500 transition duration-200 max-[640px]:hidden"
         />
       </div>
 
       {/* Desktop nav links */}
-      <nav className="hidden min-[850px]:flex md:gap-6 lg:gap-12 text-[17px] text-gray-700 flex-2 justify-center ">
-        <div className=" flex items-center gap-7 " >
+      <nav className="hidden min-[850px]:flex md:gap-6 lg:gap-12 text-gray-700 flex-1 justify-center h-full">
+        <div className="flex items-center gap-7 h-full">
           <NavLink to="/" className="flex flex-col items-center gap-1">
             Home
           </NavLink>
-          <NavLink to="/collection" className="flex flex-col items-center gap-1">
+          <NavLink
+            to="/collection"
+            className="flex flex-col items-center gap-1"
+          >
             Collection
           </NavLink>
           <NavLink to="/contact" className="flex flex-col items-center gap-1">
@@ -60,25 +78,31 @@ const Navbar = () => {
         </div>
       </nav>
 
-      <div className="flex items-center gap-9 flex-1 justify-center ">
-        <div className="flex gap-8" >
-          <Link to="/cart" className="relative">
-            <img src={assets.cart_icon} className="w-6" alt="Cart" />
+      {/* Cart and User icons */}
+      <div className="flex items-center gap-3 justify-center">
+        <div className="flex gap-5 min-[350px]:gap-8">
+          <Link to="/cart" className="relative flex-shrink-0">
+            <img
+              src={assets.cart_icon}
+              className=" w-6 flex-shrink-0"
+              alt="Cart"
+            />
             <span className="absolute right-[-5px] bottom-[-5px] w-4 text-center leading-4 bg-black text-white aspect-square rounded-full text-[8px]">
               10
             </span>
           </Link>
 
-          <div className="relative">
-            <p onClick={() => setShow((pre) => !pre)}>
+          <div className="relative flex-shrink-0" ref={userRef}>
+            <button onClick={() => setShow((pre) => !pre)}>
               <img
                 src={assets.profile_icon}
-                className="w-6 cursor-pointer"
+                className="w-6 cursor-pointer flex-shrink-0"
                 alt="Profile"
               />
-            </p>
+            </button>
+
             <div
-              className={`absolute right-0 pt-4 ${show ? "block" : "hidden"} `}
+              className={`absolute right-0 pt-4 ${show ? "block" : "hidden"}`}
             >
               <div className="flex flex-col gap-2 w-36 py-3 px-5 bg-slate-100 text-gray-700">
                 <p className="cursor-pointer hover:text-black">My Profile</p>
@@ -90,7 +114,7 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Mobile sidebar & overlay */}
+      {/* Mobile sidebar overlay */}
       {isOpen && (
         <div
           className="fixed inset-0 bg-black bg-opacity-40 z-40"
@@ -98,9 +122,11 @@ const Navbar = () => {
         ></div>
       )}
 
+      {/* Mobile sidebar */}
       <aside
-        className={`fixed top-0 left-0 h-full w-64 bg-white z-50 transform ${isOpen ? "translate-x-0" : "-translate-x-full"
-          } transition-transform duration-300 ease-in-out`}
+        className={`fixed top-0 left-0 h-full w-64 bg-white z-50 transform ${
+          isOpen ? "translate-x-0" : "-translate-x-full"
+        } transition-transform duration-300 ease-in-out`}
       >
         <button className="p-4 text-xl" onClick={closeMenu}>
           &larr; Back
@@ -110,33 +136,41 @@ const Navbar = () => {
           <NavLink
             to="/"
             onClick={closeMenu}
-            className="text-gray-800 hover:text-blue-500 flex gap-3 items-center "
+            className="text-gray-800 hover:text-blue-500 flex gap-3 items-center"
           >
-            <i className="block" class="fa fa-home"></i>
+            <i className="fa fa-home"></i>
             <p className="text-[20px]">Home</p>
           </NavLink>
-          <NavLink to="/" onClick={closeMenu} className="text-gray-800 hover:text-blue-500 flex gap-3 items-center ">
-            <i className="block" class="fa fa-home"></i>
-            <p className="text-[20px]" >Collection</p>
+          <NavLink
+            to="/collection"
+            onClick={closeMenu}
+            className="text-gray-800 hover:text-blue-500 flex gap-3 items-center"
+          >
+            <i className="fa fa-th-large"></i>
+            <p className="text-[20px]">Collection</p>
           </NavLink>
           <NavLink
-            to="/"
+            to="/about"
             onClick={closeMenu}
-            className="text-gray-800 hover:text-blue-500 flex gap-3 items-center "
+            className="text-gray-800 hover:text-blue-500 flex gap-3 items-center"
           >
-            <i className="block" class="fa fa-address-card"></i>
+            <i className="fa fa-address-card"></i>
             <p className="text-[20px]">About</p>
           </NavLink>
-          <NavLink to="/" onClick={closeMenu} className="text-gray-800 hover:text-blue-500 flex gap-3 items-center ">
-            <i className="block" class="fa fa-home"></i>
-            <p className="text-[20px]" >Contact</p>
+          <NavLink
+            to="/contact"
+            onClick={closeMenu}
+            className="text-gray-800 hover:text-blue-500 flex gap-3 items-center"
+          >
+            <i className="fa fa-phone"></i>
+            <p className="text-[20px]">Contact</p>
           </NavLink>
           <NavLink
-            to="/"
+            to="/location"
             onClick={closeMenu}
-            className="text-gray-800 hover:text-blue-500 flex gap-3 items-center "
+            className="text-gray-800 hover:text-blue-500 flex gap-3 items-center"
           >
-            <i className="block" class="fa fa-home"></i>
+            <i className="fa fa-map-marker"></i>
             <p className="text-[20px]">Location</p>
           </NavLink>
         </nav>
@@ -146,15 +180,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-
-
-{/* <div className="items-center justify-center flex-1 hidden w-full md:flex 3xl:w-auto 3xl:shrink-0 3xl:justify-center">
-        <div className="relative w-full 3xl:w-[56rem]">
-          <input
-            type="text"
-            placeholder="Search..."
-            className="w-full ps-10 pe-4 py-2 h-10 bg-gray-200/20 dark:bg-gray-700/20 outline-none focus:outline-blue-500 text-gray-700 rounded-full text-base"
-          />
-        </div>
-      </div> */}
-
