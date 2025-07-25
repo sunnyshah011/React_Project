@@ -35,7 +35,7 @@ const Navbar = () => {
   }, []);
 
   return (
-    <header className="flex items-center justify-between py-7 px-4 font-medium relative z-50 min-[300px]:gap-5">
+    <header className="flex items-center justify-between py-7 px-2 min-[500px]:px-4 font-medium relative z-50 min-[300px]:gap-5">
       {/* Mobile menu icon */}
       <div>
         <img
@@ -53,7 +53,7 @@ const Navbar = () => {
           value={search}
           onChange={(e) => setSearch(e.target.value)}
           placeholder="Search products..."
-          className="pl-5 py-1.5 w-full rounded-3xl border border-gray-300 focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500 transition duration-200 max-[640px]:hidden"
+          className="pl-5 py-1.5 w-full rounded-full border border-gray-300 focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500 transition duration-200"
         />
       </div>
 

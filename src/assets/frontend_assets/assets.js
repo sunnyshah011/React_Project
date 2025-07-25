@@ -80,6 +80,7 @@ import profile_icon from './profile_icon.png'
 import dropdown_icon from './dropdown_icon.png'
 import menu_icon from './menu_icon.png'
 import spiderman from './spiderman.png'
+import nightmare from './nightmare.jpg'
 
 export const assets = {
     logo,
@@ -87,6 +88,7 @@ export const assets = {
     cart_icon,
     dropdown_icon,
     spiderman,
+    nightmare,
     // exchange_icon,
     profile_icon,
     // quality_icon,
