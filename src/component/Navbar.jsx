@@ -30,7 +30,7 @@ const Navbar = () => {
         className="w-5 cursor-pointer min-[850px]:hidden"
         alt="Menu"
       />
-   {search}
+      
       <div>
         <div>
            <input
@@ -38,14 +38,14 @@ const Navbar = () => {
           value={search}
           onChange={(e) => setSearch(e.target.value)}
           placeholder="Search products..."
-          className="w-full pl-10 pr-15 py-1.5 rounded-3xl border border-gray-300 focus:outline-none focus:ring-1
-           focus:ring-blue-500 focus:border-blue-500 transition duration-200 hidden sm:block"
+          className="flex-1/2 pl-10 pr-10 py-1.5 rounded-3xl border border-gray-300 focus:outline-none focus:ring-1
+           focus:ring-blue-500 focus:border-blue-500 transition duration-200 max-[640px]:hidden "
         />
         </div>
       </div>
 
       {/* Desktop nav links */}
-      <nav className="hidden min-[850px]:flex md:gap-6 lg:gap-12 text-sm text-gray-700">
+      <nav className="hidden min-[850px]:flex md:gap-6 lg:gap-12 text-[17px] text-gray-700">
         <NavLink to="/" className="flex flex-col items-center gap-1">
           Home
         </NavLink>
@@ -61,7 +61,7 @@ const Navbar = () => {
       </nav>
 
       {/* Right side icons */}
-      <div className="flex items-center gap-7">
+      <div className="flex items-center gap-9">
         {/* <img
           src={assets.search_icon}
           className="w-5.5 cursor-pointer"
@@ -69,7 +69,7 @@ const Navbar = () => {
         /> */}
 
         <Link to="/cart" className="relative">
-          <img src={assets.cart_icon} className="w-5.5" alt="Cart" />
+          <img src={assets.cart_icon} className="w-6" alt="Cart" />
           <span className="absolute right-[-5px] bottom-[-5px] w-4 text-center leading-4 bg-black text-white aspect-square rounded-full text-[8px]">
             10
           </span>
@@ -79,7 +79,7 @@ const Navbar = () => {
           <p onClick={() => setShow((pre) => !pre)}>
             <img
               src={assets.profile_icon}
-              className="w-5.5 cursor-pointer"
+              className="w-6 cursor-pointer"
               alt="Profile"
             />
           </p>

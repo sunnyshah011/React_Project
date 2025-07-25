@@ -12,7 +12,7 @@ import Product from "./pages/Product";
 
 const App = () => {
   return (
-    <div className="px-5 sm:px-[5vw] md:px-[8vw] lg:px-[12vw] h-[200vh]" >
+    <div className="px-3 sm:px-[4vw] md:px-[5vw] lg:px-[8vw] h-[200vh]  " >
       <Navbar /> 
       <Routes>
         <Route path="/" element={<Home />} />
