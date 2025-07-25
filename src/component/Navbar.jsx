@@ -117,7 +117,7 @@ const Navbar = () => {
       {/* Mobile sidebar overlay */}
       {isOpen && (
         <div
-          className="fixed inset-0 bg-black bg-opacity-40 z-40"
+          className="fixed inset-0 bg-black bg-opacity-40 z-40 transition-transform duration-400 ease-linear"
           onClick={closeMenu}
         ></div>
       )}
