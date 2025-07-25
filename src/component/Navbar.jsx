@@ -19,7 +19,7 @@ const Navbar = () => {
   }, [isOpen]);
 
   return (
-    <header className="flex items-center justify-between py-5 px-4 font-medium relative z-50">
+    <header className="flex items-center justify-between py-5 px-4 font-medium relative z-50 gap-5">
       {/* Logo (optional) */}
       {/* <NavLink to="/"><img src={assets.logo} className="w-36" alt="Logo" /></NavLink> */}
 
@@ -30,66 +30,61 @@ const Navbar = () => {
         className="w-5 cursor-pointer min-[850px]:hidden"
         alt="Menu"
       />
-      
-      <div>
-        <div>
-           <input
+
+      <div className="flex-3">
+        <input
           type="text"
           value={search}
           onChange={(e) => setSearch(e.target.value)}
           placeholder="Search products..."
-          className="flex-1/2 pl-10 pr-10 py-1.5 rounded-3xl border border-gray-300 focus:outline-none focus:ring-1
+          className="pl-5 py-1.5 w-full rounded-3xl border border-gray-300 focus:outline-none focus:ring-1
            focus:ring-blue-500 focus:border-blue-500 transition duration-200 max-[640px]:hidden "
         />
-        </div>
       </div>
 
       {/* Desktop nav links */}
-      <nav className="hidden min-[850px]:flex md:gap-6 lg:gap-12 text-[17px] text-gray-700">
-        <NavLink to="/" className="flex flex-col items-center gap-1">
-          Home
-        </NavLink>
-        <NavLink to="/collection" className="flex flex-col items-center gap-1">
-          Collection
-        </NavLink>
-        <NavLink to="/contact" className="flex flex-col items-center gap-1">
-          Contact
-        </NavLink>
-        <NavLink to="/about" className="flex flex-col items-center gap-1">
-          About
-        </NavLink>
+      <nav className="hidden min-[850px]:flex md:gap-6 lg:gap-12 text-[17px] text-gray-700 flex-2 justify-center ">
+        <div className=" flex items-center gap-7 " >
+          <NavLink to="/" className="flex flex-col items-center gap-1">
+            Home
+          </NavLink>
+          <NavLink to="/collection" className="flex flex-col items-center gap-1">
+            Collection
+          </NavLink>
+          <NavLink to="/contact" className="flex flex-col items-center gap-1">
+            Contact
+          </NavLink>
+          <NavLink to="/about" className="flex flex-col items-center gap-1">
+            About
+          </NavLink>
+        </div>
       </nav>
 
-      {/* Right side icons */}
-      <div className="flex items-center gap-9">
-        {/* <img
-          src={assets.search_icon}
-          className="w-5.5 cursor-pointer"
-          alt="Search"
-        /> */}
+      <div className="flex items-center gap-9 flex-1 justify-center ">
+        <div className="flex gap-8" >
+          <Link to="/cart" className="relative">
+            <img src={assets.cart_icon} className="w-6" alt="Cart" />
+            <span className="absolute right-[-5px] bottom-[-5px] w-4 text-center leading-4 bg-black text-white aspect-square rounded-full text-[8px]">
+              10
+            </span>
+          </Link>
 
-        <Link to="/cart" className="relative">
-          <img src={assets.cart_icon} className="w-6" alt="Cart" />
-          <span className="absolute right-[-5px] bottom-[-5px] w-4 text-center leading-4 bg-black text-white aspect-square rounded-full text-[8px]">
-            10
-          </span>
-        </Link>
-
-        <div className="relative">
-          <p onClick={() => setShow((pre) => !pre)}>
-            <img
-              src={assets.profile_icon}
-              className="w-6 cursor-pointer"
-              alt="Profile"
-            />
-          </p>
-          <div
-            className={`absolute right-0 pt-4 ${show ? "block" : "hidden"} `}
-          >
-            <div className="flex flex-col gap-2 w-36 py-3 px-5 bg-slate-100 text-gray-700">
-              <p className="cursor-pointer hover:text-black">My Profile</p>
-              <p className="cursor-pointer hover:text-black">My Orders</p>
-              <p className="cursor-pointer hover:text-black">Logout</p>
+          <div className="relative">
+            <p onClick={() => setShow((pre) => !pre)}>
+              <img
+                src={assets.profile_icon}
+                className="w-6 cursor-pointer"
+                alt="Profile"
+              />
+            </p>
+            <div
+              className={`absolute right-0 pt-4 ${show ? "block" : "hidden"} `}
+            >
+              <div className="flex flex-col gap-2 w-36 py-3 px-5 bg-slate-100 text-gray-700">
+                <p className="cursor-pointer hover:text-black">My Profile</p>
+                <p className="cursor-pointer hover:text-black">My Orders</p>
+                <p className="cursor-pointer hover:text-black">Logout</p>
+              </div>
             </div>
           </div>
         </div>
@@ -104,13 +99,11 @@ const Navbar = () => {
       )}
 
       <aside
-        className={`fixed top-0 left-0 h-full w-64 bg-white z-50 transform ${
-          isOpen ? "translate-x-0" : "-translate-x-full"
-        } transition-transform duration-300 ease-in-out`}
+        className={`fixed top-0 left-0 h-full w-64 bg-white z-50 transform ${isOpen ? "translate-x-0" : "-translate-x-full"
+          } transition-transform duration-300 ease-in-out`}
       >
         <button className="p-4 text-xl" onClick={closeMenu}>
-          {" "}
-          &larr; Back{" "}
+          &larr; Back
         </button>
 
         <nav className="flex flex-col p-4 space-y-2">
@@ -123,8 +116,8 @@ const Navbar = () => {
             <p className="text-[20px]">Home</p>
           </NavLink>
           <NavLink to="/" onClick={closeMenu} className="text-gray-800 hover:text-blue-500 flex gap-3 items-center ">
-          <i className="block" class="fa fa-home"></i>
-          <p className="text-[20px]" >Collection</p>
+            <i className="block" class="fa fa-home"></i>
+            <p className="text-[20px]" >Collection</p>
           </NavLink>
           <NavLink
             to="/"
@@ -135,8 +128,8 @@ const Navbar = () => {
             <p className="text-[20px]">About</p>
           </NavLink>
           <NavLink to="/" onClick={closeMenu} className="text-gray-800 hover:text-blue-500 flex gap-3 items-center ">
-          <i className="block" class="fa fa-home"></i>
-          <p className="text-[20px]" >Contact</p>
+            <i className="block" class="fa fa-home"></i>
+            <p className="text-[20px]" >Contact</p>
           </NavLink>
           <NavLink
             to="/"
@@ -153,3 +146,15 @@ const Navbar = () => {
 };
 
 export default Navbar;
+
+
+{/* <div className="items-center justify-center flex-1 hidden w-full md:flex 3xl:w-auto 3xl:shrink-0 3xl:justify-center">
+        <div className="relative w-full 3xl:w-[56rem]">
+          <input
+            type="text"
+            placeholder="Search..."
+            className="w-full ps-10 pe-4 py-2 h-10 bg-gray-200/20 dark:bg-gray-700/20 outline-none focus:outline-blue-500 text-gray-700 rounded-full text-base"
+          />
+        </div>
+      </div> */}
+
