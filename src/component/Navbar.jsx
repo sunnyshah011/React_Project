@@ -122,13 +122,9 @@ const Navbar = () => {
             <i className="block" class="fa fa-home"></i>
             <p className="text-[20px]">Home</p>
           </NavLink>
-          <NavLink
-            to="/"
-            onClick={closeMenu}
-            className="text-gray-800 hover:text-blue-500 flex gap-3 items-center "
-          >
-            <i className="block" class="fa fa-list"></i>
-            <p className="text-[20px]">Collection</p>
+          <NavLink to="/" onClick={closeMenu} className="text-gray-800 hover:text-blue-500 flex gap-3 items-center ">
+          <i className="block" class="fa fa-home"></i>
+          <p className="text-[20px]" >Collection</p>
           </NavLink>
           <NavLink
             to="/"
@@ -138,13 +134,9 @@ const Navbar = () => {
             <i className="block" class="fa fa-address-card"></i>
             <p className="text-[20px]">About</p>
           </NavLink>
-          <NavLink
-            to="/"
-            onClick={closeMenu}
-            className="text-gray-800 hover:text-blue-500 flex gap-3 items-center "
-          >
-            <i className="block" class="fa fa-home"></i>
-            <p className="text-[20px]">Contact</p>
+          <NavLink to="/" onClick={closeMenu} className="text-gray-800 hover:text-blue-500 flex gap-3 items-center ">
+          <i className="block" class="fa fa-home"></i>
+          <p className="text-[20px]" >Contact</p>
           </NavLink>
           <NavLink
             to="/"
