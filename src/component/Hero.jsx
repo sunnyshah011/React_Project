@@ -1,51 +1,37 @@
-import React from "react";
-import { useState } from "react";
-
 import { assets } from "../assets/frontend_assets/assets";
 
 const Hero = () => {
 
-  const [search, setSearch] = useState("");
-
   return (
-      <div className="w-full h-[45vh] sm:h-[55vh] md:h-[60vh] lg:h-[70vh]  flex flex-col py-3 px-1 ">
-        <div className="w-full h-[50vh]  flex flex-col items-center justify-center " >
-          <div className="w-50 sm:w-60 md:w-65 lg:w-65 xl:w-70 aspect-square bg-red-400 overflow-hidden rounded-full">
-            <img
-              src={assets.nightmare}
-              alt="Hero image"
-              className="w-full h-full object-cover rounded-full"
-            />
-          </div>
-        </div>
-
-        <div className='w-full h-[10vh] flex justify-center  items-center' >
-          <div className=" text-[26px] sm:text-4xl md:text-5xl lg:text-6xl  text-center min-[370px]:text-[31px] font-poppins font-semibold ">
-            FISHING TACKLE STORE
-          </div>
-        </div>
-
-        <div className='w-full h-[10vh]  flex justify-center items-center min-[583px]:items-start md:pt-2  ' >
-          <div className="text-center text-[15px] sm:text-5 px-5 max-[320px]:text-[10px] leading-4.5 font-normal ">
-            Find durable, reliable fishing products for beginners and experienced anglers.
-          </div>
+    <div className="w-full min-h-[45vh] lg:min-h-[80vh] flex flex-col items-center justify-center px-4">
+      {/* Hero Image Section */}
+      <div className="w-full flex items-center justify-center">
+        <div className="w-40 sm:w-52 md:w-56 lg:w-64 xl:w-72 aspect-square bg-red-400 overflow-hidden rounded-full">
+          <img
+            src={assets.nightmare}
+            alt="Hero"
+            className="w-full h-full object-cover rounded-full"
+          />
         </div>
       </div>
-      
+
+      {/* Title */}
+      <div className="w-full flex justify-center mt-4">
+        <h1 className="text-2xl min-[370px]:text-[31px] sm:text-4xl md:text-5xl lg:text-6xl font-poppins font-semibold text-center">
+          ASUS VIVOBOOK
+        </h1>
+      </div>
+
+      {/* Description */}
+      <div className="w-full flex justify-center items-center md:pt-3 mt-2">
+        <p className="text-sm max-[320px]:text-[10px] sm:text-base md:text-lg px-4 text-center leading-relaxed font-normal max-w-2xl">
+          Lorem ipsum dolor sit amet consectetur quo, adipisci in.
+        </p>
+      </div>
+    </div>
+
+
   )
 };
 
 export default Hero;
-
-{/* search bar for mobile screen  */}
-      {/* <div>
-        <div>
-          <input
-            type="text"
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-            placeholder="Search products..."
-            className="pl-5 py-1.5 w-full bg-amber-50 rounded-3xl border border-gray-300 focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500 transition duration-200 min-[640px]:hidden"
-          />
-        </div>
-      </div> */}
