@@ -3,58 +3,58 @@ import { assets } from "../assets/frontend_assets/assets";
 
 const Category = () => {
   return (
-    <div className="w-full min:h-[50vh] mt-4">
+    <div className="w-full min:h-[50vh] mt-4 mb-7 bg-amber-900">
       <div className="grid grid-cols-2 gap-2 p-1 min-[850px]:grid-cols-4">
-        <div className=" w-full h-[22vh] md:h-[35vh] min-[600px]:h-[30vh] flex justify-center items-center">
+        <div className="w-full h-[22vh] md:h-[35vh] min-[600px]:h-[30vh] flex justify-center items-center">
           <img
-            src={assets.reel}
+            src={assets.nightmare}
             alt="Hero"
             className="w-full h-full object-cover rounded-2xl"
           />
           <p className="absolute bg-black p-1 px-4 rounded-full opacity-50">
-            REEL
+            NONE
           </p>
           <p className="absolute p-1 px-4 rounded-full text-white font-semibold">
-            REEL
+            NONE
           </p>
         </div>
         <div className=" w-full h-[22vh] md:h-[35vh] min-[600px]:h-[30vh] flex justify-center items-center">
           <img
-            src={assets.accessories}
+            src={assets.nightmare}
             alt="Hero"
             className="w-full h-full object-cover rounded-2xl"
           />
           <p className="absolute bg-black p-1 px-4 rounded-full opacity-50">
-            ACCESSORIES
+            NONE
           </p>
           <p className="absolute p-1 px-4 rounded-full text-white font-semibold">
-            ACCESSORIES
+            NONE
           </p>
         </div>
         <div className=" w-full h-[22vh] md:h-[35vh] min-[600px]:h-[30vh] flex justify-center items-center">
           <img
-            src={assets.comboset}
+            src={assets.nightmare}
             alt="Hero"
             className="w-full h-full object-cover rounded-2xl"
           />
           <p className="absolute bg-black p-1 px-4 rounded-full opacity-50">
-            COMBO SET
+            NONE
           </p>
           <p className="absolute p-1 px-4 rounded-full text-white font-semibold">
-            COMBO SET
+            NONE
           </p>
         </div>
         <div className=" w-full h-[22vh] md:h-[35vh] min-[600px]:h-[30vh] flex justify-center items-center">
           <img
-            src={assets.rod}
+            src={assets.nightmare}
             alt="Hero"
             className="w-full h-full object-cover rounded-2xl"
           />
           <p className="absolute bg-black p-1 px-4 rounded-full opacity-50">
-            ROD
+            NONE
           </p>
           <p className="absolute p-1 px-4 rounded-full text-white font-semibold">
-            ROD
+            NONE
           </p>
         </div>
       </div>
