@@ -81,10 +81,18 @@ import dropdown_icon from './dropdown_icon.png'
 import menu_icon from './menu_icon.png'
 import spiderman from './spiderman.png'
 import nightmare from './nightmare.jpg'
+import reel from './reel.jpg'
+import rod from './rod.jpeg'
+import accessories from './accessories.jpeg'
+import comboset from './combo set.jpg'
 
 export const assets = {
     logo,
     // hero_img,
+    rod,
+    accessories,
+    comboset,
+    reel,
     cart_icon,
     dropdown_icon,
     spiderman,
