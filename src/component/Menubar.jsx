@@ -3,7 +3,7 @@ import { assets } from "../assets/frontend_assets/assets";
 
 const Menubar = () => {
   return (
-    <div className="flex items-center justify-center px-4">
+    <div className="flex items-center justify-center mt-3 px-4">
       <div className="w-full flex justify-between items-center">
         <div>Category</div>
 
