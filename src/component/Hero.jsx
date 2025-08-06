@@ -3,7 +3,7 @@ import { assets } from "../assets/frontend_assets/assets";
 const Hero = () => {
 
   return (
-    <div className="w-full min-h-[40vh] lg:min-h-[70vh] lg:mt-8 flex flex-col items-center justify-center px-4 bg-green-600">
+    <div className="w-full min-h-[40vh] mt-17 lg:min-h-[70vh] lg:mt-20 flex flex-col items-center justify-center px-4 bg-green-600">
       {/* Hero Image Section */}
       <div className="w-full flex items-center justify-center">
         <div className="w-40 sm:w-52 md:w-56 lg:w-64 xl:w-72 aspect-square bg-red-400 overflow-hidden rounded-full">
