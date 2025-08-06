@@ -35,7 +35,7 @@ const Navbar = () => {
   }, []);
 
   return (
-    <header className="flex items-center justify-between py-7 px-2 min-[500px]:px-4 font-medium relative z-50 min-[200px]:gap-5">
+    <header className="flex items-center relative bg-amber-300 justify-between shadow-blue-400 py-5 px-2 min-[500px]:px-4 font-medium z-50 min-[200px]:gap-5">
       {/* Mobile menu icon */}
       <div>
         <img

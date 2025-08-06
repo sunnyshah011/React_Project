@@ -4,12 +4,10 @@ import Navbar from "./component/Navbar";
 import Home from "./pages/Home";
 import Collection from "./pages/Collection";
 import Cart from "./pages/Cart";
-import Contact from "./pages/Contact";
 import Login from "./pages/Login";
 import Order from "./pages/Order";
 import Placeorder from "./pages/PlaceOrder";
 import Product from "./pages/Product";
-import About from "./pages/About";
 
 const App = () => {
   return (
@@ -17,10 +15,8 @@ const App = () => {
       <Navbar /> 
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/collection" element={<Collection />} />
-        <Route path="/contact" element={<Contact />} />
         <Route path="/login" element={<Login />} />
         <Route path="/order" element={<Order />} />
         <Route path="/placeorder" element={<Placeorder />} />

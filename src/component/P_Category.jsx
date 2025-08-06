@@ -1,9 +1,9 @@
 import React from "react";
 import { assets } from "../assets/frontend_assets/assets";
 
-const Category = () => {
+const P_Category = () => {
   return (
-    <div className="w-full min:h-[50vh] mt-4 mb-7 bg-amber-900">
+    <div className="w-full min:h-[50vh] mt-4 mb-7 bg-orange-600">
       <div className="grid grid-cols-2 gap-2 p-1 min-[850px]:grid-cols-4">
         <div className="w-full h-[22vh] md:h-[35vh] min-[600px]:h-[30vh] flex justify-center items-center">
           <img
@@ -62,4 +62,4 @@ const Category = () => {
   );
 };
 
-export default Category;
+export default P_Category;

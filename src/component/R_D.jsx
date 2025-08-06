@@ -2,12 +2,12 @@ import { useContext } from "react"
 import { ShopContext } from "../Context/ShopContext"
 
 
-const R_page = () => {
+const R_D = () => {
 
     const {products} = useContext(ShopContext)
     
   return (
-   <div className="w-full p-1 mt-3 overflow-x-auto">
+   <div className="w-full p-1 mt-3 overflow-x-auto bg-blue-600">
          <div className="flex gap-1" style={{ minWidth: "fit-content" }}>
            {products.slice(10,20).map((product, index) => (
              <div key={index} className="w-[33vw] aspect-square bg-white flex-shrink-0 rounded-xl overflow-hidden">
@@ -23,4 +23,4 @@ const R_page = () => {
   )
 }
 
-export default R_page
+export default R_D
