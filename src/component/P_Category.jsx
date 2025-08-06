@@ -14,12 +14,9 @@ const P_Category = () => {
     }
   }, [products])  // <- Watch for products update
 
-  console.log(p_image);
-
-
 
   return (
-    <div className="w-full mt-4 mb-7">
+    <div className="w-full mt-4 mb-7 px-2">
       <Title Category="Category" More="View All" />
 
       {p_image.length >= 4 ? (
@@ -36,7 +33,7 @@ const P_Category = () => {
               />
 
               {/* Overlay */}
-              <div className="absolute inset-0 bg-black bg-opacity-30 flex flex-col justify-center items-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <div className="absolute inset-0 text-center bg-black bg-opacity-30 flex flex-col justify-center items-center opacity-0 group-hover:opacity-30 transition-opacity duration-300">
                 <p className="bg-black bg-opacity-60 text-white text-sm font-medium px-4 py-1 rounded-full mb-1">
                   Category
                 </p>

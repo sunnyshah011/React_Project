@@ -11,7 +11,7 @@ const R_L = () => {
 
 useEffect(() => {
   if (products.length > 0) {
-    setproduct(products.slice(10, 20))
+    setproduct(products.slice(10, 16))
   }
 }, [products])  // <- Watch for products update
 
@@ -20,9 +20,9 @@ useEffect(() => {
 
       <Title Category="R_L" More="View" />
 
-      <div className="mt-5 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-y-4 gap-x-2">
+      <div className="mt-5 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-6 gap-y-4 gap-x-2">
         {R_L_Product.map((product, index) => (
-          <Product_Page id={product.id} name={product.name} price={product.price} image={product.image} />
+          <Product_Page id={product._id} name={product.name} price={product.price} image={product.image} />
         ))}
       </div>
     </div>
