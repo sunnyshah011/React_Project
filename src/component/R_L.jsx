@@ -1,20 +1,28 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { ShopContext } from "../Context/ShopContext";
 import Title from './Title'
 import Product_Page from "./Product_Page";
+import { useEffect } from "react";
 
 const R_L = () => {
 
-    const {products} = useContext(ShopContext)
+  const { products } = useContext(ShopContext)
+  const [R_L_Product, setproduct] = useState([])
+
+useEffect(() => {
+  if (products.length > 0) {
+    setproduct(products.slice(10, 20))
+  }
+}, [products])  // <- Watch for products update
 
   return (
-    <div className="w-full p-1 mt-3 mb-5 overflow-x-auto bg-purple-600">
+    <div className="w-full p-2 mt-3">
 
-       <Title Category="R_D" More="View" />
-  
-      <div className="mt-4 flex gap-1">
-        {products.slice(0,10).map((product, index) => (
-          <Product_Page />
+      <Title Category="R_L" More="View" />
+
+      <div className="mt-5 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-y-4 gap-x-2">
+        {R_L_Product.map((product, index) => (
+          <Product_Page id={product.id} name={product.name} price={product.price} image={product.image} />
         ))}
       </div>
     </div>
