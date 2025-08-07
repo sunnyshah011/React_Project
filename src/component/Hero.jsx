@@ -8,7 +8,7 @@ const Hero = () => {
       <div className="w-full flex items-center justify-center">
         <div className="w-40 sm:w-50 md:w-52 lg:w-60 xl:w-60 aspect-square bg-red-400 overflow-hidden rounded-full">
           <img
-            src={assets.fts}
+            src={assets.nightmare}
             alt="Hero"
             className="object-cover rounded-full scale-128"
           />
@@ -24,7 +24,7 @@ const Hero = () => {
 
       <div className="w-full flex justify-center overflow-x-auto mt-2">
         <h1 className="text-[8vw] sm:text-[7vw] md:text-[5vw] lg:text-[5vw] xl:text-[5vw] font-poppins font-semibold text-center">
-          FISHING TACKLE STORE
+          NIGHTMARE
         </h1>
       </div>
 

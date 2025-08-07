@@ -7,10 +7,10 @@ const Product_Page = ({ id, name, price, image }) => {
   const { currency } = useContext(ShopContext)
 
   return (
-    <Link className="text-gray-700 cursor-pointer rounded-2xl" to={`/product/${id}`} >
+    <Link className="text-gray-700 cursor-pointer rounded-[10px] " to={`/product/${id}`} >
 
-      <div className="overflow-hidden" >
-        <img src={image[0]} alt="" className="hover:opacity-90 transition ease-in-out rounded-2xl"/>
+      <div className="overflow-hidden h-[200px]" >
+        <img src={image[0]} alt="" className="hover:opacity-90 transition ease-in-out rounded-[10px]"/>
       </div>
 
       <p className="pt-3 pb-1 pl-1 text-sm line-clamp-1" > {name} </p>

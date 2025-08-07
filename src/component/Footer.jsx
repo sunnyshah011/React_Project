@@ -1,9 +1,9 @@
 
 const Footer = () => {
   return (
-    <div className='h-20 w-full p-3 flex justify-center items-center bg-blue-300'>
+    <div className='h-15 w-full p-3 flex justify-center items-center bg-gray-300'>
       <div className='font-semibold text-2xl'>
-        FISHING TACKLE STORE
+        PRIVACY AND POLICY
       </div>
     </div>
   )
