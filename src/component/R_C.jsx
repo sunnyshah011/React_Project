@@ -4,21 +4,21 @@ import Title from './Title'
 import Product_Page from "./Product_Page";
 import { useEffect } from "react";
 
-const R_L = () => {
+const R_C = () => {
 
   const { products } = useContext(ShopContext)
   const [R_L_Product, setproduct] = useState([])
 
 useEffect(() => {
   if (products.length > 0) {
-    setproduct(products.slice(10, 14))
+    setproduct(products.slice(18, 22))
   }
 }, [products])  // <- Watch for products update
 
   return (
     <div className="w-full p-2 mt-5">
 
-      <Title Category="R_L" More="View" />
+      <Title Category="R_C" More="View" />
 
       <div className="mt-5 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 gap-y-6 gap-x-2">
         {R_L_Product.map((product, index) => (
@@ -29,4 +29,4 @@ useEffect(() => {
   );
 };
 
-export default R_L;
+export default R_C;

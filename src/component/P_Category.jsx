@@ -2,6 +2,7 @@ import { useContext, useState } from 'react';
 import Title from './Title';
 import { ShopContext } from '../Context/ShopContext';
 import { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 const P_Category = () => {
 
@@ -17,7 +18,9 @@ const P_Category = () => {
 
   return (
     <div className="w-full mt-4 mb-7 px-2">
-      <Title Category="Category" More="View All" />
+      <Link to='/collection' >
+        <Title Category="Category" More="View All" />
+      </Link>
 
       {p_image.length >= 4 ? (
         <div className="mt-5 grid gap-3 px-1 grid-cols-2 sm:grid-cols-2 lg:grid-cols-4">

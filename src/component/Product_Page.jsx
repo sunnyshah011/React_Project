@@ -13,10 +13,9 @@ const Product_Page = ({ id, name, price, image }) => {
         <img src={image[0]} alt="" className="hover:opacity-90 transition ease-in-out rounded-2xl"/>
       </div>
 
-      <p className="pt-3 pb-1 text-sm line-clamp-1" > {name} </p>
-      <p className="text-sm font-medium truncate" > {currency} {price} </p>
+      <p className="pt-3 pb-1 pl-1 text-sm line-clamp-1" > {name} </p>
+      <p className="pl-2 text-[16px] font-semibold truncate" > {currency} {price} /- </p>
     </Link>
   )
 }
-
 export default Product_Page
