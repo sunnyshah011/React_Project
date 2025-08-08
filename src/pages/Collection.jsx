@@ -46,13 +46,14 @@ const Collection = () => {
         subcategory.includes(item.subCategory)
       );
     }
-
     setFilterProducts(productscopy);
   };
 
   useEffect(() => {
     applyfilter();
   }, [category, subcategory]);
+
+
 
   return (
     <div className=" flex flex-col sm:flex-row gap-1 sm:gap-10 mt-20 px-2">
@@ -148,7 +149,7 @@ const Collection = () => {
             </p>
           </div>
         </div>
-        <div className="border-1 text-center mx-5" onClick={resetcategory}>
+        <div className="border-1 text-center mx-5 cursor-pointer" onClick={resetcategory}>
           RESET FILTER
         </div>
       </div>
@@ -167,15 +168,21 @@ const Collection = () => {
 
         {/* Map Products */}
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 gap-y-6">
-          {filterProducts.map((item, index) => (
-            <Product_Page
-              key={index}
-              id={item._id}
-              name={item.name}
-              price={item.price}
-              image={item.image}
-            />
-          ))}
+          {filterProducts.length <= 0 ? (
+            <div className="w-full col-span-2 text-center pt-30 pb-30 text-2xl">
+              <p>NO PRODUCT FOUND</p>
+            </div>
+          ) : (
+            filterProducts.map((item, index) => (
+              <Product_Page
+                key={index}
+                id={item._id}
+                name={item.name}
+                price={item.price}
+                image={item.image}
+              />
+            ))
+          )}
         </div>
       </div>
     </div>

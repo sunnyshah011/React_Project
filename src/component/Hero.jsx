@@ -31,7 +31,8 @@ const Hero = () => {
       {/* Description */}
       <div className="w-full flex justify-center items-center md:pt-2 mt-2">
         <p className="text-md max-[320px]:text-[10px] sm:text-base md:text-lg px-4 text-center leading-relaxed font-normal max-w-2xl">
-          "Gear up for the catch – premium fishing equipment for every angler."
+          {/* "Gear up for the catch – premium fishing equipment for every angler." */}
+          Lorem ipsum dolor sit amet onem minus! Accusantium molestiae optio placeat.
         </p>
       </div>
     </div>
