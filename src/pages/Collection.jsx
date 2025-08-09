@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from "react";
+import { useContext, useState, useEffect } from "react";
 import { ShopContext } from "../Context/ShopContext";
 import { assets } from "../assets/frontend_assets/assets";
 import Product_Page from "../component/Product_Page";
@@ -31,7 +31,7 @@ const Collection = () => {
   const resetcategory = () => {
     setcategory([]);
     setsubcategory([]);
-    setsortType('relavent');
+    setsortType("relavent");
   };
 
   // loading data base on filter
@@ -64,18 +64,15 @@ const Collection = () => {
       default:
         applyfilter();
         break;
-    } 
+    }
   };
 
   useEffect(() => {
     applyfilter();
-    console.log(category);
-    console.log(subcategory)
   }, [category, subcategory]);
 
   useEffect(() => {
     sortproduct();
-    console.log(sortType)
   }, [sortType]);
 
   return (
@@ -189,16 +186,16 @@ const Collection = () => {
             className="border-2 border-gray-300 text-sm px-2"
             onChange={(e) => setsortType(e.target.value)}
           >
-            <option value="relavent" >Relavent</option>
-            <option value="low-high" >Low-High</option>
-            <option value="high-low" >High-Low</option>
+            <option value="relavent">Relavent</option>
+            <option value="low-high">Low-High</option>
+            <option value="high-low">High-Low</option>
           </select>
         </div>
 
         {/* Map Products */}
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 gap-y-6">
           {filterProducts.length <= 0 ? (
-            <div className="w-full col-span-2 text-center pt-30 pb-30 text-2xl">
+            <div className="w-full min-[100px]:col-span-4 text-center pt-30 pb-30 text-2xl">
               <p>NO PRODUCT FOUND</p>
             </div>
           ) : (
