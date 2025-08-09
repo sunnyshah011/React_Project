@@ -9,6 +9,7 @@ const Collection = () => {
   const [filterProducts, setFilterProducts] = useState([]);
   const [category, setcategory] = useState([]);
   const [subcategory, setsubcategory] = useState([]);
+  const [relavent, setrelavent] = useState(['true'])
 
   const togglecategory = (e) => {
     if (category.includes(e.target.value)) {
@@ -25,6 +26,10 @@ const Collection = () => {
       setsubcategory((pre) => [...pre, e.target.value]);
     }
   };
+
+  const togglesetrelavent = (e) => {
+    setrelavent([e.target.value])
+  }
 
   // resetallfilter
   const resetcategory = () => {
@@ -46,13 +51,18 @@ const Collection = () => {
         subcategory.includes(item.subCategory)
       );
     }
-    setFilterProducts(productscopy);
+
+    if (relavent.length > 0) {
+      productscopy = productscopy.filter((item) => relavent.includes(item.bestseller))
+    }
+
+    setFilterProducts(productscopy)
+
   };
 
   useEffect(() => {
     applyfilter();
   }, [category, subcategory]);
-
 
 
   return (
@@ -71,9 +81,8 @@ const Collection = () => {
         </p>
         {/* Category Filer */}
         <div
-          className={` border border-gray-300 pl-5 py-3 mt-6 ${
-            showFilter ? "" : "hidden"
-          } sm:block`}
+          className={` border border-gray-300 pl-5 py-3 mt-6 ${showFilter ? "" : "hidden"
+            } sm:block`}
         >
           <p className="mb-3 text-sm font-medium">CATEGORIES</p>
           <div className="flex flex-col gap-2 text-sm font-light text-gray-700">
@@ -111,9 +120,8 @@ const Collection = () => {
         </div>
         {/* subCategory Filter */}
         <div
-          className={` border border-gray-300 pl-5 py-3 my-5 ${
-            showFilter ? "" : "hidden"
-          } sm:block`}
+          className={` border border-gray-300 pl-5 py-3 my-5 ${showFilter ? "" : "hidden"
+            } sm:block`}
         >
           <p className="mb-3 text-sm font-medium">SUB CATEGORIES</p>
           <div className="flex flex-col gap-2 text-sm font-light text-gray-700">
@@ -159,10 +167,10 @@ const Collection = () => {
         <div className="flex justify-between text-base sm:text-2xl mb-4">
           <p>ALL COLLECTION</p>
           {/* Product Sort */}
-          <select className="border-2 border-gray-300 text-sm px-2">
-            <option value="relevent">Popular</option>
-            <option value="low-high">Low-High</option>
-            <option value="high-low">High-Low</option>
+          <select className="border-2 border-gray-300 text-sm px-2" onChange={togglesetrelavent}>
+            <option value="true" >Popular</option>
+            <option value="low-high" >Low-High</option>
+            <option value="high-low" >High-Low</option>
           </select>
         </div>
 
