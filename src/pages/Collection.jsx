@@ -9,7 +9,7 @@ const Collection = () => {
   const [filterProducts, setFilterProducts] = useState([]);
   const [category, setcategory] = useState([]);
   const [subcategory, setsubcategory] = useState([]);
-  const [relavent, setrelavent] = useState(['true'])
+  const [sortType, setsortType] = useState("relavent");
 
   const togglecategory = (e) => {
     if (category.includes(e.target.value)) {
@@ -27,14 +27,11 @@ const Collection = () => {
     }
   };
 
-  const togglesetrelavent = (e) => {
-    setrelavent([e.target.value])
-  }
-
   // resetallfilter
   const resetcategory = () => {
     setcategory([]);
     setsubcategory([]);
+    setsortType('relavent');
   };
 
   // loading data base on filter
@@ -51,19 +48,35 @@ const Collection = () => {
         subcategory.includes(item.subCategory)
       );
     }
+    setFilterProducts(productscopy);
+  };
 
-    if (relavent.length > 0) {
-      productscopy = productscopy.filter((item) => relavent.includes(item.bestseller))
-    }
+  const sortproduct = () => {
+    let fpcopy = filterProducts.slice();
 
-    setFilterProducts(productscopy)
-
+    switch (sortType) {
+      case "low-high":
+        setFilterProducts(fpcopy.sort((a, b) => a.price - b.price));
+        break;
+      case "high-low":
+        setFilterProducts(fpcopy.sort((a, b) => b.price - a.price));
+        break;
+      default:
+        applyfilter();
+        break;
+    } 
   };
 
   useEffect(() => {
     applyfilter();
+    console.log(category);
+    console.log(subcategory)
   }, [category, subcategory]);
 
+  useEffect(() => {
+    sortproduct();
+    console.log(sortType)
+  }, [sortType]);
 
   return (
     <div className=" flex flex-col sm:flex-row gap-1 sm:gap-10 mt-20 px-2">
@@ -81,8 +94,9 @@ const Collection = () => {
         </p>
         {/* Category Filer */}
         <div
-          className={` border border-gray-300 pl-5 py-3 mt-6 ${showFilter ? "" : "hidden"
-            } sm:block`}
+          className={` border border-gray-300 pl-5 py-3 mt-6 ${
+            showFilter ? "" : "hidden"
+          } sm:block`}
         >
           <p className="mb-3 text-sm font-medium">CATEGORIES</p>
           <div className="flex flex-col gap-2 text-sm font-light text-gray-700">
@@ -120,8 +134,9 @@ const Collection = () => {
         </div>
         {/* subCategory Filter */}
         <div
-          className={` border border-gray-300 pl-5 py-3 my-5 ${showFilter ? "" : "hidden"
-            } sm:block`}
+          className={` border border-gray-300 pl-5 py-3 my-5 ${
+            showFilter ? "" : "hidden"
+          } sm:block`}
         >
           <p className="mb-3 text-sm font-medium">SUB CATEGORIES</p>
           <div className="flex flex-col gap-2 text-sm font-light text-gray-700">
@@ -157,7 +172,10 @@ const Collection = () => {
             </p>
           </div>
         </div>
-        <div className="border-1 text-center mx-5 cursor-pointer" onClick={resetcategory}>
+        <div
+          className="border-1 text-center mx-5 cursor-pointer"
+          onClick={resetcategory}
+        >
           RESET FILTER
         </div>
       </div>
@@ -167,8 +185,11 @@ const Collection = () => {
         <div className="flex justify-between text-base sm:text-2xl mb-4">
           <p>ALL COLLECTION</p>
           {/* Product Sort */}
-          <select className="border-2 border-gray-300 text-sm px-2" onChange={togglesetrelavent}>
-            <option value="true" >Popular</option>
+          <select
+            className="border-2 border-gray-300 text-sm px-2"
+            onChange={(e) => setsortType(e.target.value)}
+          >
+            <option value="relavent" >Relavent</option>
             <option value="low-high" >Low-High</option>
             <option value="high-low" >High-Low</option>
           </select>
