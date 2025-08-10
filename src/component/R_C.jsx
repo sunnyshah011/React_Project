@@ -22,7 +22,7 @@ useEffect(() => {
 
       <div className="mt-5 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 gap-y-6 gap-x-2">
         {R_L_Product.map((product, index) => (
-          <Product_Page id={product._id} name={product.name} price={product.price} image={product.image} />
+          <Product_Page id={product._id} key={index} name={product.name} price={product.price} image={product.image} />
         ))}
       </div>
     </div>

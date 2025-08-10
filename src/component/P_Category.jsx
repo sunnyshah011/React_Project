@@ -30,7 +30,7 @@ const P_Category = () => {
               className="relative group aspect-[4/3] rounded-2xl overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300"
             >
               <img
-                src={item.image}
+                src={item.image[0]}
                 alt={item.name || "Product"}
                 className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
               />

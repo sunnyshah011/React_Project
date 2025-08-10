@@ -21,6 +21,7 @@ const R_D = () => {
       <div className="mt-5 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 gap-y-6 gap-x-2">
         {R_D_product.map((product, index) => (
           <Product_Page
+          key={index}
             id={product._id}
             name={product.name}
             price={product.price}

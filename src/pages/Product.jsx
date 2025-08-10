@@ -1,34 +1,64 @@
 import { useContext, useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { ShopContext } from "../Context/ShopContext";
+import { assets } from "../assets/frontend_assets/assets";
 
 const Product = () => {
   const { productId } = useParams();
-  const { products } = useContext(ShopContext);
-  const [fproduct, setfproduct] = useState([]);
+  const { products, currency } = useContext(ShopContext);
+  const [fproduct, setfproduct] = useState(null);
   const [image, setimage] = useState("");
 
   const filterproduct = async () => {
     products.map((item) => {
       if (item._id === productId) {
-        setfproduct(item);
-        setimage(item.image[0]);
-        console.log(item);
-        console.log(image);
+        setfproduct(item)
+        setimage(item.image[0])
+        return null
       }
-    });
+    })
   };
+
 
   useEffect(() => {
     filterproduct();
   }, [productId, products]);
 
-  return (
-    <div className="mt-15 w-full bg-green-400 min-h-screen px-2 py-5">
-      {fproduct.name}
-      {<img src={image} alt="" srcset="" />}
+  return fproduct ? (
+    <div className="transition-opacity ease-in duration-500 opacity-100 mt-25 px-3">
+      {/* product data */}
+      <div className="flex gap-4 sm:gap-12 flex-col sm:flex-row mb-[100px]">
+        {/* product images */}
+        <div className="flex-1 flex flex-col-reverse gap-3 sm:flex-row items-center">
+          <div className="flex sm:flex-col overflow-x-auto sm:overflow-y-scroll justify-between sm:justify-normal sm:w-[18.7%] w-[90%] ">
+            {
+              fproduct.image.map((item, index) => (
+                <img onClick={() => setimage(item)} src={item} key={index} className="w-[20%] rounded-[10px] sm:w-full sm:mb-3 flex-shrink-o cursor-pointer" />
+              ))
+            }
+          </div>
+          <div className="w-full sm:w-[80%]">
+            <img className="w-full h-auto rounded-2xl" src={image} alt="" />
+          </div>
+        </div>
+
+        {/* product info */}
+        <div className="flex-1">
+          <h1 className="font-medium text-2xl mt-2">{fproduct.name}</h1>
+          <div className="flex items-center gap-1 mt-2">
+            <img src={assets.star_icon} alt="" className="w-3" />
+            <img src={assets.star_icon} alt="" className="w-3" />
+            <img src={assets.star_icon} alt="" className="w-3" />
+            <img src={assets.star_icon} alt="" className="w-3" />
+            <img src={assets.star_icon} alt="" className="w-3" />
+          </div>
+
+          <p className="mt-5 text-3xl font-medium" > {currency} {fproduct.price} </p>
+          <p className="mt-5 text-gray-500 md:4/5">{fproduct.description}</p>
+        </div>
+      </div>
     </div>
-  );
+  ) : <div className="mt-50 text-2xl"> Retry </div>
 };
 
 export default Product;
