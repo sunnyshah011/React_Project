@@ -35,8 +35,18 @@ const Navbar = () => {
   }, []);
 
   return (
-    <header className="fixed top-0 left-0 w-full flex items-center justify-between border-gray-400 border-b-1 bg-white py-3 px-5 min-[500px]:px-10 sm:px-[4vw] md:px-[5vw] lg:px-[8vw] font-medium z-50 min-[200px]:gap-5">
-      {/* Mobile menu icon */}
+    <header className="fixed top-0 left-0 w-full flex items-center justify-between border-gray-400 border-b-1 bg-white py-3 px-4 min-[500px]:px-5 sm:px-[4vw] md:px-[5vw] lg:px-[8vw] font-medium z-50 min-[200px]:gap-5">
+      {/* home icon for navigation */}
+      <div>
+        <Link to='/'>
+          <img
+          src={assets.home}
+          className="w-5.5 cursor-pointer min-[850px]:hidden flex-shrink-0"
+          alt="H"
+        />
+        </Link>
+      </div>
+      {/* Mobile menu icon */}  
       <div>
         <img
           onClick={openMenu}

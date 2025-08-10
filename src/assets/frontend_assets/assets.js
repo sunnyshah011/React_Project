@@ -75,9 +75,11 @@ import stripe_logo from './stripe_logo.png'
 import cross_icon from './cross_icon.png'
 import nightmare from './nightmare.jpg'
 import fts from './FTS LOGO_png.png'
+import home from './home.png'
 
 export const assets = {
     fts,
+    home,
     logo,
     nightmare,
     hero_img,
