@@ -24,6 +24,11 @@ const Product = () => {
     filterproduct();
   }, [productId, products]);
 
+  useEffect(() => {
+    window.scrollTo(0,0)
+  }, [])
+  
+
   return fproduct ? (
     <div className="transition-opacity ease-in duration-500 opacity-100 mt-30 px-3">
       {/* product data */}
