@@ -23,8 +23,8 @@ const Cart = () => {
   }, [cartitem]);
 
   return (
-    <div className="border-t pt-20">
-      <div className="text-2xl mb-3">{/* <Title  /> */}</div>
+    <div className="mt-20 px-4">
+      <div className="text-[18px] mb-2">ALL CART ITEMS</div>
 
       <div>
         {cartdata.map((item, index) => {
@@ -33,7 +33,7 @@ const Cart = () => {
           return (
             <div
               key={index}
-              className="py-4 border-t text-gray-700 grid grid-cols-[4fr_0.5fr_0.5fr] sm:grid-cols-[4fr_2fr_0.5fr] items-center gap-4"
+              className="py-3 border-t-1 text-gray-700 border-gray-400 grid grid-cols-[4fr_0.5fr_0.5fr] sm:grid-cols-[4fr_2fr_0.5fr] items-center gap-4"
             >
               <div className="flex items-start gap-6">
                 <img
@@ -42,9 +42,11 @@ const Cart = () => {
                   alt=""
                 />
                 <div>
-                  <p className="text-xl sm:text-lg font-medium">
-                    {" "}
-                    {productdata.name}{" "}
+                  <p className="text-[13px] sm:text-lg font-medium">
+                    {productdata.name}
+                  </p>
+                  <p>
+                    {cartdata[0].size}
                   </p>
                 </div>
               </div>

@@ -4,15 +4,15 @@ import tailwindcss from '@tailwindcss/vite'
 
 // https://vite.dev/config/
 export default defineConfig({
-  // base: '/',
-  base: '/React_Project/',
-  theme: {
-    extend: {
-      fontFamily: {
-        poppins: ['Poppins', 'sans-serif'],
-      },
-    },
-  },
+  base: '/',
+  // base: '/React_Project/',
+  // theme: {
+  //   extend: {
+  //     fontFamily: {
+  //       poppins: ['Poppins', 'sans-serif'],
+  //     },
+  //   },
+  // },
   plugins: [
     tailwindcss(),
     react(),
