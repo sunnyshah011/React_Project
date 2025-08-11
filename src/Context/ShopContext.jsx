@@ -1,4 +1,4 @@
-import React, { createContext } from 'react'
+import { createContext, useState } from 'react'
 import {products} from '../assets/frontend_assets/assets'
 
 const ShopContext = createContext();
@@ -7,6 +7,11 @@ const ShopContextProvider = (props) => {
 
     const currency = 'Rs.';
     const delivery_fee = 10;
+    const [cartitem,setcartitem] = useState({})
+
+    const addtocart=async()=>{
+      
+    }
 
     const value = {
         products,
