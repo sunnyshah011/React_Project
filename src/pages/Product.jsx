@@ -5,7 +5,7 @@ import { assets } from "../assets/frontend_assets/assets";
 
 const Product = () => {
   const { productId } = useParams();
-  const { products, currency } = useContext(ShopContext);
+  const { products, currency, addtocart } = useContext(ShopContext);
   const [fproduct, setfproduct] = useState(null);
   const [image, setimage] = useState("");
   const [size, setsize] = useState("");
@@ -78,7 +78,7 @@ const Product = () => {
                 </button>
               ))}
             </div>
-            <button className="bg-black text-white px-8 py-3 text-sm active:bg-gray-700 w-40">
+            <button onClick={()=>addtocart(fproduct._id,size)} className="bg-black text-white px-8 py-3 text-sm active:bg-gray-700 w-40">
               ADD TO CART
             </button>
           </div>

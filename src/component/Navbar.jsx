@@ -1,11 +1,13 @@
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState, useRef, useContext } from "react";
 import { assets } from "../assets/frontend_assets/assets";
 import { NavLink, Link } from "react-router-dom";
+import { ShopContext } from "../Context/ShopContext";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [show, setShow] = useState(false);
   const [search, setSearch] = useState("");
+  const { getcartcount } = useContext(ShopContext);
 
   const userRef = useRef(null);
 
@@ -38,15 +40,15 @@ const Navbar = () => {
     <header className="fixed top-0 left-0 w-full flex items-center justify-between border-gray-400 border-b-1 bg-white py-3 px-4 min-[500px]:px-5 sm:px-[4vw] md:px-[5vw] lg:px-[8vw] font-medium z-50 min-[200px]:gap-5">
       {/* home icon for navigation */}
       <div>
-        <Link to='/'>
+        <Link to="/">
           <img
-          src={assets.home}
-          className="w-5.5 cursor-pointer min-[850px]:hidden flex-shrink-0"
-          alt="H"
-        />
+            src={assets.home}
+            className="w-5.5 cursor-pointer min-[850px]:hidden flex-shrink-0"
+            alt="H"
+          />
         </Link>
       </div>
-      {/* Mobile menu icon */}  
+      {/* Mobile menu icon */}
       <div>
         <img
           onClick={openMenu}
@@ -99,7 +101,7 @@ const Navbar = () => {
               alt="Cart"
             />
             <span className="absolute right-[-4px] bottom-[-1px] w-4 text-center leading-4 bg-black text-white aspect-square rounded-full text-[8px]">
-              0
+              {getcartcount()}
             </span>
           </Link>
 
