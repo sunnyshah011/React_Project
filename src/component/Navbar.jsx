@@ -36,10 +36,13 @@ const Navbar = () => {
     };
   }, []);
 
- 
+   useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
+
 
   return (
-    <header className="fixed top-0 left-0 w-full flex items-center justify-between border-gray-100 border-b-1 bg-white py-3 px-4 min-[500px]:px-5 sm:px-[4vw] md:px-[5vw] lg:px-[8vw] font-medium z-50 min-[200px]:gap-5">
+    <header className="fixed top-0 left-0 w-full flex items-center justify-between border-gray-100 border-b-1 bg-white py-4 px-4 min-[500px]:px-5 sm:px-[4vw] md:px-[5vw] lg:px-[8vw] font-medium z-50 min-[200px]:gap-5">
       {/* home icon for navigation */}
       <div>
         <Link to="/">
