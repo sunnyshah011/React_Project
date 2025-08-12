@@ -8,9 +8,8 @@ import Login from "./pages/Login";
 import Order from "./pages/Order";
 import Placeorder from "./pages/PlaceOrder";
 import Product from "./pages/Product";
-import { ToastContainer, toast } from 'react-toastify';
 import Footer from './component/Footer'
-
+import { ToastContainer, toast } from 'react-toastify';
 
 const App = () => {
   return (

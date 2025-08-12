@@ -7,13 +7,27 @@ const Product_Page = ({ id, name, price, image }) => {
   const { currency } = useContext(ShopContext)
 
   return (
-    <Link className="text-gray-700 cursor-pointer rounded-[10px] " to={`/product/${id}`} >
-      <div className="overflow-hidden" >
-        <img src={image[0]} alt="" className="hover:opacity-90 transition ease-in-out rounded-[10px]"/>
+    <Link
+      className="text-gray-700 cursor-pointer rounded-[10px] block" to={`/product/${id}`}>
+      <div className="aspect-square overflow-hidden rounded-[10px]">
+        <img
+          src={image[0]}
+          alt=""
+          className="w-full h-full object-cover object-top bottom-0 hover:opacity-90 transition ease-in-out"
+        />
       </div>
-      <p className="pt-3 pb-1 pl-1 text-sm line-clamp-1" > {name} </p>
-      <p className="pl-2 text-[16px] font-semibold truncate" > {currency} {price} /- </p>
+      <p className="pt-3 pb-1 pl-1 text-sm line-clamp-1">{name}</p>
+      <p className="pl-2 text-[16px] font-semibold truncate">
+        {currency} {price} /-
+      </p>
     </Link>
   )
 }
 export default Product_Page
+//  <Link className="text-gray-700 cursor-pointer rounded-[10px] " to={`/product/${id}`} >
+//       <div className="aspect-square rounded-[10px]" >
+//         <img src={image[0]} alt="" className="hover:opacity-90 object-cover transition ease-in-out rounded-[10px]"/>
+//       </div>
+//       <p className="pt-3 pb-1 pl-1 text-sm line-clamp-1" > {name} </p>
+//       <p className="pl-2 text-[16px] font-semibold truncate" > {currency} {price} /- </p>
+//     </Link>

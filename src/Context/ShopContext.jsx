@@ -1,6 +1,6 @@
 import { createContext, useState, useEffect } from "react";
 import { products } from "../assets/frontend_assets/assets";
-import { toast } from "react-toastify";
+import { ToastContainer, toast } from 'react-toastify';
 
 const ShopContext = createContext();
 

@@ -25,12 +25,12 @@ const Product = () => {
   }, [productId, products]);
 
   useEffect(() => {
-    window.scrollTo(0,0)
+    window.scrollTo(0, 0)
   }, [])
-  
+
 
   return fproduct ? (
-    <div className="transition-opacity ease-in duration-500 opacity-100 mt-20 px-4">
+    <div className="transition-opacity ease-in duration-500 opacity-100 mt-25 px-4">
       {/* product data */}
       <div className="flex gap-4 sm:gap-12 flex-col sm:flex-row mb-[100px]">
         {/* product images */}
@@ -41,15 +41,22 @@ const Product = () => {
                 onClick={() => setimage(item)}
                 src={item}
                 key={index}
-                className={`w-[20%] rounded-[10px] sm:w-full flex-shrink-o cursor-pointer ${
-                  item === image ? "border border-red-600" : ""
-                } `}
+                className={`w-[20%] rounded-[10px] sm:w-full flex-shrink-o cursor-pointer ${item === image ? "border border-red-600" : ""
+                  } `}
               />
             ))}
           </div>
-          <div className="w-full sm:w-[80%]">
+          {/* <div className="w-full sm:w-[80%]">
             <img className="w-full h-auto rounded-2xl" src={image} alt="" />
+          </div> */}
+          <div className="w-full sm:w-[80%] aspect-square overflow-hidden rounded-[16px]">
+            <img
+              src={image}
+              alt="Product"
+              className="w-full h-full object-cover object-top"
+            />
           </div>
+
         </div>
 
         {/* product info */}
@@ -73,9 +80,8 @@ const Product = () => {
             <div className="flex gap-2">
               {fproduct.sizes.map((item, index) => (
                 <button
-                  className={`py-2 px-4 bg-blue-50 ${
-                    item === size ? "bg-blue-600 text-white" : ""
-                  } `}
+                  className={`py-2 px-4 bg-blue-50 ${item === size ? "bg-blue-600 text-white" : ""
+                    } `}
                   key={index}
                   onClick={() => setsize(item)}
                 >
@@ -83,7 +89,7 @@ const Product = () => {
                 </button>
               ))}
             </div>
-            <button onClick={()=>addtocart(fproduct._id,size)} className="bg-black text-white px-8 py-3 text-sm active:bg-gray-700 w-40">
+            <button onClick={() => addtocart(fproduct._id, size)} className="bg-black text-white px-8 py-3 text-sm active:bg-gray-700 w-40">
               ADD TO CART
             </button>
           </div>
