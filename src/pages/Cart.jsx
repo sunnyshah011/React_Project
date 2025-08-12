@@ -1,9 +1,10 @@
 import { useContext, useState, useEffect } from "react";
 import { ShopContext } from "../Context/ShopContext";
 import { assets } from "../assets/frontend_assets/assets";
+import CartTotal from "../component/CartTotal";
 
 const Cart = () => {
-  const { products, currency, cartitem, updateQuantity } =
+  const { products, currency, cartitem, updateQuantity,navigate } =
     useContext(ShopContext);
 
   const [cartdata, setcartdata] = useState([]);
@@ -25,9 +26,13 @@ const Cart = () => {
     console.log(tempdata);
   }, [cartitem]);
 
+    useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
+
   return (
     <div className="mt-20 px-4">
-      <div className="text-[18px] mb-2">ALL CART ITEMS</div>
+      <div className="text-[22px] font-medium mb-2">My Cart</div>
 
       <div>
         {cartdata.map((item, index) => {
@@ -83,6 +88,15 @@ const Cart = () => {
             </div>
           );
         })}
+      </div>
+
+      <div className="flex justify-end my-20">
+        <div className="w-full sm:w-[450px]">
+          <CartTotal />
+          <div className="w-full text-end">
+            <button onClick={()=>navigate('./placeorder')} className="bg-black text-white text-sm my-8 px-8 py-3" >PROCEED TO CHECKOUT</button>
+          </div>
+        </div>
       </div>
     </div>
   );

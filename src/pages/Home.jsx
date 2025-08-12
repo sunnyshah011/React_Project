@@ -1,4 +1,4 @@
-import React from 'react'
+import { useEffect } from 'react'
 import Hero from '../component/Hero'
 import P_Category from '../component/P_Category'
 import R_L from '../component/R_L'
@@ -8,6 +8,12 @@ import R_C from '../component/R_C'
 
 
 const Home = () => {
+
+    useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
+
+
   return (
     <div>
       <Hero />
