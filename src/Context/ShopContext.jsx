@@ -14,9 +14,9 @@ const ShopContextProvider = (props) => {
       toast.error("SELECT PRODUCT SIZE!");
       return;
     }
-    if (itemId && size) {
-      toast.info("Product Added To Cart");
-    }
+    // if (itemId && size) {
+    //   toast.info("Product Added To Cart");
+    // }
     let cartdata = structuredClone(cartitem);
     if (cartdata[itemId]) {
       if (cartdata[itemId][size]) {
@@ -29,6 +29,7 @@ const ShopContextProvider = (props) => {
       cartdata[itemId][size] = 1;
     }
     setcartitem(cartdata);
+    console.log(cartitem);
   };
 
   const getcartcount = () => {
@@ -47,6 +48,12 @@ const ShopContextProvider = (props) => {
     return totalcount;
   };
 
+  const updateQuantity =(itemId,size,quantity)=>{
+    let cartdata = structuredClone(cartitem)
+    cartdata[itemId][size] = quantity;
+    setcartitem(cartdata)
+  }
+
   const value = {
     products,
     currency,
@@ -54,6 +61,7 @@ const ShopContextProvider = (props) => {
     cartitem,
     addtocart,
     getcartcount,
+    updateQuantity
   };
 
   return (
