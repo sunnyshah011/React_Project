@@ -18,7 +18,7 @@ useEffect(() => {
   return (
     <div className="w-full p-2 mt-5">
 
-      <Title Category="R_C" More="View" />
+      <Title Category="p-2 & x-2" More="View" />
 
       <div className="mt-5 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 gap-y-6 gap-x-2">
         {R_L_Product.map((product, index) => (
