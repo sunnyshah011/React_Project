@@ -2,6 +2,7 @@ import { useContext, useState, useEffect } from "react";
 import { ShopContext } from "../Context/ShopContext";
 import { assets } from "../assets/frontend_assets/assets";
 import CartTotal from "../component/CartTotal";
+import { Link } from "react-router-dom";
 
 const Cart = () => {
   const { products, currency, cartitem, updateQuantity,navigate } =
@@ -23,7 +24,6 @@ const Cart = () => {
       }
     }
     setcartdata(tempdata);
-    console.log(tempdata);
   }, [cartitem]);
 
     useEffect(() => {
@@ -46,11 +46,13 @@ const Cart = () => {
               className="py-3 border-t-1 text-gray-700 border-gray-400 grid grid-cols-[4fr_0.5fr_0.5fr] sm:grid-cols-[4fr_2fr_0.5fr] items-center gap-4"
             >
               <div className="flex items-start gap-6">
+                <Link to={`/product/${item._id}`}>
                 <img
                   className="w-16 sm:w-20"
                   src={productdata.image[0]}
                   alt=""
                 />
+                </Link>
                 <div>
                   <p className="text-[13px] sm:text-lg font-medium">
                     {productdata.name}
