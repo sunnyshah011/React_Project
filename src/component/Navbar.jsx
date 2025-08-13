@@ -2,6 +2,10 @@ import { useEffect, useState, useRef, useContext } from "react";
 import { assets } from "../assets/frontend_assets/assets";
 import { NavLink, Link } from "react-router-dom";
 import { ShopContext } from "../Context/ShopContext";
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+// import { faFacebook} from '@fortawesome/free-brands-svg-icons';
+import { UserIcon } from '@heroicons/react/24/outline'; // or /outline
+import { ClipboardDocumentListIcon  } from '@heroicons/react/24/outline'; // or /outline
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -122,10 +126,19 @@ const Navbar = () => {
             <div
               className={`absolute right-0 pt-4 ${show ? "block" : "hidden"}`}
             >
-              <div className="flex flex-col gap-2 w-36 py-3 px-5 bg-slate-100 text-gray-700">
-                <p className="cursor-pointer hover:text-black">My Profile</p>
-                <p className="cursor-pointer hover:text-black">My Orders</p>
-                <p className="cursor-pointer hover:text-black">Logout</p>
+              <div className="flex flex-col gap-3 w-38 py-3 pl-4 bg-white border border-gray-300 rounded-2xl text-gray-700">
+                <p className="cursor-pointer hover:text-black flex gap-3">
+                  <UserIcon className="h-6 w-6 text-gray-700" />
+                    <span>My Profile</span>
+                </p>
+                <p className="cursor-pointer hover:text-black flex gap-3">
+                   <ClipboardDocumentListIcon  className="h-6 w-6 text-gray-700" />
+                  <span>My Orders</span>
+                </p>
+                <p className="cursor-pointer hover:text-black flex gap-3">
+                  <UserIcon className="h-6 w-6 text-gray-700" />
+                  <span>Logout</span>
+                </p>
               </div>
             </div>
           </div>
