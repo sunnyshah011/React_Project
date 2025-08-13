@@ -76,7 +76,7 @@ const Collection = () => {
   }, [sortType]);
 
   return (
-    <div className=" flex flex-col sm:flex-row gap-1 sm:gap-10 mt-20 px-2">
+    <div className=" flex flex-col sm:flex-row gap-1 sm:gap-10 mt-20 px-3">
       {/* Filter Options */}
       <div className="min-w-60">
         <p
@@ -193,7 +193,7 @@ const Collection = () => {
         </div>
 
         {/* Map Products */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 gap-y-6">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 gap-y-6">
           {filterProducts.length <= 0 ? (
             <div className="w-full min-[100px]:col-span-4 text-center pt-30 pb-30 text-2xl">
               <p>NO PRODUCT FOUND</p>

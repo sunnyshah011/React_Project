@@ -15,10 +15,10 @@ const R_D = () => {
   }, [products]); // <- Watch for products update
 
   return (
-    <div className="w-full p-4 mt-5 bg-green-50">
-      <Title Category="p-4 & x-4" More="View" />
+    <div className="w-full p-3 mt-5">
+      <Title Category="R_D" More="View" />
 
-      <div className="mt-5 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 gap-y-6 gap-x-4">
+      <div className="mt-5 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 gap-y-6 gap-x-2">
         {R_D_product.map((product, index) => (
           <Product_Page
           key={index}
