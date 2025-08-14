@@ -198,7 +198,7 @@ const Collection = () => {
         </div>
 
         {/* Map Products */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 gap-y-6">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 gap-y-3">
           {filterProducts.length <= 0 ? (
             <div className="w-full min-[100px]:col-span-4 text-center pt-30 pb-30 text-2xl">
               <p>NO PRODUCT FOUND</p>

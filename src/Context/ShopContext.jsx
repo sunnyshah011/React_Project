@@ -38,7 +38,7 @@ const ShopContextProvider = (props) => {
       cartdata[itemId][size] = 1;
     }
     setcartitem(cartdata);
-    console.log(cartitem);
+    // console.log(cartitem);
     toast.success("Product added to cart!", {
       position: "top-center",
       className: "custom-toast-center",
