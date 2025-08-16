@@ -15,7 +15,7 @@ import Register from "./pages/Register";
 
 const App = () => {
   return (
-    <div className="flex flex-col min-h-screen sm:px-[4vw] md:px-[5vw] lg:px-[7vw]">
+    <div className="flex flex-col min-h-screen sm:px-[4vw] md:px-[5vw] lg:px-[10vw]">
       <ToastContainer
         position="top-center"
         autoClose={2000}
